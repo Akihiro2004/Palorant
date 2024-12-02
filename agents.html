@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Palorant - Agents</title>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css" rel="stylesheet">
+    <link rel="shortcut icon" href="Assets/General/Logo.png" type="image/x-icon">
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="index.html" class="logo"><img class="logoval" src="Assets/General/Logo.png" alt="logo"></img> <img src="Assets/General/TextLogo.png" alt="logotext" class="logovaltext"></a>
+            <button class="mobile-menu-btn"><i class="fa-solid fa-bars-staggered"></i></button>
+            <div class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="agents.html">Agents</a>
+                <a href="maps.html">Maps</a>
+                <a href="news.html">News</a>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <div class="container-main-dark">
+            <h2 class="page-title-dark">AGENTS</h2>
+
+            <div class="role-filter">
+                <button class="role-option active" data-role="all">All Agents</button>
+                <button class="role-option" data-role="controller">
+                    <img src="/Assets/Agents/Role/controller.png" alt="controller">
+                    Controller
+                </button>
+                <button class="role-option" data-role="duelist">
+                    <img src="/Assets/Agents/Role/duelist.png" alt="duelist">
+                    Duelist
+                </button>
+                <button class="role-option" data-role="sentinel">
+                    <img src="/Assets/Agents/Role/sentinel.png" alt="sentinel">
+                    Sentinel
+                </button>
+                <button class="role-option" data-role="initiator">
+                    <img src="/Assets/Agents/Role/initiator.png" alt="initiator">
+                    Initiator
+                </button>
+            </div>
+
+            <div class="role-dropdown">
+                <div class="custom-select">
+                    <div class="select-trigger">
+                        <span>All Agents</span>
+                        <i class="fa-solid fa-chevron-down"></i>
+                    </div>
+                    <div class="select-options">
+                        <div class="select-option" data-value="all">
+                            <span>All Agents</span>
+                        </div>
+                        <div class="select-option" data-value="controller">
+                            <img src="/Assets/Agents/Role/controller.png" alt="controller">
+                            <span>Controller</span>
+                        </div>
+                        <div class="select-option" data-value="duelist">
+                            <img src="/Assets/Agents/Role/duelist.png" alt="duelist">
+                            <span>Duelist</span>
+                        </div>
+                        <div class="select-option" data-value="sentinel">
+                            <img src="/Assets/Agents/Role/sentinel.png" alt="sentinel">
+                            <span>Sentinel</span>
+                        </div>
+                        <div class="select-option" data-value="initiator">
+                            <img src="/Assets/Agents/Role/initiator.png" alt="initiator">
+                            <span>Initiator</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <section class="agents-grid" >
+                <div class="agent-card">
+                    <img src="Assets/Agents/Brimstone.avif" alt="Brimstone" draggable="false">
+                    <div class="agent-info">
+                        <h3>BRIMSTONE</h3>
+                        <img class="agent-role" src="/Assets/Agents/Role/controller.png" alt="controller">
+                    </div>
+                </div>
+                <div class="agent-card">
+                    <img src="Assets/Agents/phoenix.avif" alt="Phoenix" draggable="false">
+                    <div class="agent-info">
+                        <h3>PHOENIX</h3>
+                        <img class="agent-role" src="/Assets/Agents/Role/duelist.png" alt="duelist">
+                    </div>
+                </div>
+                <div class="agent-card">
+                    <img src="Assets/Agents/sage.avif" alt="Sage" draggable="false">
+                    <div class="agent-info">
+                        <h3>SAGE</h3>
+                        <img class="agent-role" src="/Assets/Agents/Role/sentinel.png" alt="sentinel">
+                    </div>
+                </div>
+                <div class="agent-card">
+                    <img src="Assets/Agents/Sova.avif" alt="Sova" draggable="false">
+                    <div class="agent-info">
+                        <h3>SOVA</h3>
+                        <img class="agent-role" src="/Assets/Agents/Role/initiator.png" alt="initiator">
+                    </div>
+                </div>
+                <div class="agent-card">
+                    <img src="Assets/Agents/Viper.avif" alt="Viper" draggable="false">
+                    <div class="agent-info">
+                        <h3>VIPER</h3>
+                        <img class="agent-role" src="/Assets/Agents/Role/controller.png" alt="controller">
+                    </div>
+                </div>
+                <div class="agent-card">
+                    <img src="Assets/Agents/Cypher.avif" alt="Cypher" draggable="false">
+                    <div class="agent-info">
+                        <h3>CYPHER</h3>
+                        <img class="agent-role" src="/Assets/Agents/Role/sentinel.png" alt="sentinel">
+                    </div>
+                </div>
+                <div class="agent-card">
+                    <img src="Assets/Agents/Reyna.avif" alt="Reyna" draggable="false">
+                    <div class="agent-info">
+                        <h3>REYNA</h3>
+                        <img class="agent-role" src="/Assets/Agents/Role/duelist.png" alt="duelist">
+                    </div>
+                </div>
+                <div class="agent-card">
+                    <img src="Assets/Agents/Killjoy.avif" alt="Killjoy" draggable="false">
+                    <div class="agent-info">
+                        <h3>KILLJOY</h3>
+                        <img class="agent-role" src="/Assets/Agents/Role/sentinel.png" alt="sentinel">
+                    </div>
+                </div>
+                <div class="agent-card">
+                    <img src="Assets/Agents/Breach.avif" alt="Breach" draggable="false">
+                    <div class="agent-info">
+                        <h3>BREACH</h3>
+                        <img class="agent-role" src="/Assets/Agents/Role/initiator.png" alt="initiator">
+                    </div>
+                </div>
+                <div class="agent-card">
+                    <img src="Assets/Agents/Omen.avif" alt="Omen" draggable="false">
+                    <div class="agent-info">
+                        <h3>OMEN</h3>
+                        <img class="agent-role" src="/Assets/Agents/Role/controller.png" alt="controller">
+                    </div>
+                </div>
+                <div class="agent-card">
+                    <img src="Assets/Agents/Jett.avif" alt="Jett" draggable="false">
+                    <div class="agent-info">
+                        <h3>JETT</h3>
+                        <img class="agent-role" src="/Assets/Agents/Role/duelist.png" alt="duelist">
+                    </div>
+                </div>
+                <div class="agent-card">
+                    <img src="Assets/Agents/Raze.avif" alt="Raze" draggable="false">
+                    <div class="agent-info">
+                        <h3>RAZE</h3>
+                        <img class="agent-role" src="/Assets/Agents/Role/duelist.png" alt="duelist">
+                    </div>
+                </div>
+                <div class="agent-card">
+                    <img src="Assets/Agents/Skye.avif" alt="Skye" draggable="false">
+                    <div class="agent-info">
+                        <h3>SKYE</h3>
+                        <img class="agent-role" src="/Assets/Agents/Role/initiator.png" alt="initiator">
+                    </div>
+                </div>
+                <div class="agent-card">
+                    <img src="Assets/Agents/Yoru.avif" alt="Yoru" draggable="false">
+                    <div class="agent-info">
+                        <h3>YORU</h3>
+                        <img class="agent-role" src="/Assets/Agents/Role/duelist.png" alt="duelist">
+                    </div>
+                </div>
+                <div class="agent-card">
+                    <img src="Assets/Agents/Astra.avif" alt="Astra" draggable="false">
+                    <div class="agent-info">
+                        <h3>ASTRA</h3>
+                        <img class="agent-role" src="/Assets/Agents/Role/controller.png" alt="controller">
+                    </div>
+                </div>
+                <div class="agent-card">
+                    <img src="Assets/Agents/Kayo.avif" alt="KAYO" draggable="false">
+                    <div class="agent-info">
+                        <h3>KAY/O</h3>
+                        <img class="agent-role" src="/Assets/Agents/Role/initiator.png" alt="initiator">
+                    </div>
+                </div>
+                <div class="agent-card">
+                    <img src="Assets/Agents/Chamber.avif" alt="Chamber" draggable="false">
+                    <div class="agent-info">
+                        <h3>CHAMBER</h3>
+                        <img class="agent-role" src="/Assets/Agents/Role/sentinel.png" alt="sentinel">
+                    </div>
+                </div>
+                <div class="agent-card">
+                    <img src="Assets/Agents/neon.avif" alt="Neon" draggable="false">
+                    <div class="agent-info">
+                        <h3>NEON</h3>
+                        <img class="agent-role" src="/Assets/Agents/Role/duelist.png" alt="duelist">
+                    </div>
+                </div>
+                <div class="agent-card">
+                    <img src="Assets/Agents/Fade.avif" alt="Fade" draggable="false">
+                    <div class="agent-info">
+                        <h3>FADE</h3>
+                        <img class="agent-role" src="/Assets/Agents/Role/initiator.png" alt="initiator">
+                    </div>
+                </div>
+                <div class="agent-card">
+                    <img src="Assets/Agents/Harbor.avif" alt="Harbor" draggable="false">
+                    <div class="agent-info">
+                        <h3>HARBOR</h3>
+                        <img class="agent-role" src="/Assets/Agents/Role/controller.png" alt="controller">
+                    </div>
+                </div>
+                <div class="agent-card">
+                    <img src="Assets/Agents/Gekko.avif" alt="Gekko" draggable="false">
+                    <div class="agent-info">
+                        <h3>GEKKO</h3>
+                        <img class="agent-role" src="/Assets/Agents/Role/initiator.png" alt="initiator">
+                    </div>
+                </div>
+                <div class="agent-card">
+                    <img src="Assets/Agents/Deadlock.avif" alt="Deadlock" draggable="false">
+                    <div class="agent-info">
+                        <h3>DEADLOCK</h3>
+                        <img class="agent-role" src="/Assets/Agents/Role/sentinel.png" alt="sentinel">
+                    </div>
+                </div>
+            
+                <div class="agent-card">
+                    <img src="Assets/Agents/Iso.avif" alt="Iso" draggable="false">
+                    <div class="agent-info">
+                        <h3>ISO</h3>
+                        <img class="agent-role" src="/Assets/Agents/Role/duelist.png" alt="duelist">
+                    </div>
+                </div>
+                <div class="agent-card">
+                    <img src="Assets/Agents/Clove.avif" alt="Clove" draggable="false">
+                    <div class="agent-info">
+                        <h3>CLOVE</h3>
+                        <img class="agent-role" src="/Assets/Agents/Role/controller.png" alt="controller">
+                    </div>
+                </div>
+                <div class="agent-card">
+                    <img src="Assets/Agents/Vyse.avif" alt="Vyse" draggable="false">
+                    <div class="agent-info">
+                        <h3>VYSE</h3>
+                        <img class="agent-role" src="/Assets/Agents/Role/sentinel.png" alt="sentinel">
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <footer>
+        <div class="logo-section"><img class="footerlogo" src="Assets/General/Logo.png" alt="logo" draggable="false"></div>
+        <p>Find any bug? You can <a class="report" href="report.html">Report Bug</a> from here!</p>
+        <br>
+        <h3>Our Social Media</h3>
+        <div class="logo-div">
+            <img class="logo" src="/Assets/Logo/1.png">
+            <img class="logo" src="/Assets/Logo/2.png">
+            <img class="logo" src="/Assets/Logo/3.png">
+            <img class="logo" src="/Assets/Logo/4.png">
+        </div>
+        <p>&copy; Darrien Rafael Wijaya - 2602064241</p>
+        <p>Headquartered in Los Angeles, California, <strong>Giot</strong></p>
+        
+    </footer>
+
+    <script src="/js/hamburgerbutton.js"></script>
+    <script src="/js/agentsSelector.js"></script>
+</body>
+</html>

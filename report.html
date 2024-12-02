@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Palorant - Report Bug</title>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css" rel="stylesheet">
+    <link rel="shortcut icon" href="Assets/General/Logo.png" type="image/x-icon">
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="index.html" class="logo">
+                <img class="logoval" src="Assets/General/Logo.png" alt="logo" draggable="false">
+                <img src="Assets/General/TextLogo.png" alt="logotext" class="logovaltext" draggable="false">
+            </a>
+            <button class="mobile-menu-btn"><i class="fa-solid fa-bars-staggered"></i></button>
+            <div class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="agents.html">Agents</a>
+                <a href="maps.html">Maps</a>
+                <a href="news.html">News</a>
+            </div>
+        </nav>
+    </header>
+
+    <main class="report-page">
+        <div class="report-container">
+            <div class="report-header">
+                <h1 class="report-title">Report a Bug</h1>
+                <p class="report-subtitle">Help us improve Palorant by reporting any bugs or issues you encounter. Your feedback is valuable to us.</p>
+            </div>
+
+            <div id="successMessage" class="success-message">
+                <strong>Thank you for your report!</strong><br>
+                Our team will investigate the issue and may contact you for additional information.
+            </div>
+
+            <form id="bugReportForm" class="report-form">
+                <div class="form-grid">
+                    <div class="form-group">
+                        <label for="username">Username <span class="required-field">*</span></label>
+                        <input type="text" id="username" name="username" placeholder="Enter your username" required>
+                        <span id="usernameError" class="error-message"></span>
+                        <span class="form-tip">Only letters, numbers, and underscores allowed</span>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email">Email Address <span class="required-field">*</span></label>
+                        <input type="email" id="email" name="email" placeholder="Enter your email" required>
+                        <span id="emailError" class="error-message"></span>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="server">Game Server <span class="required-field">*</span></label>
+                    <select id="server" name="server" required>
+                        <option value="">Select your server</option>
+                        <option value="NA">North America</option>
+                        <option value="EU">Europe</option>
+                        <option value="AP">Asia Pacific</option>
+                        <option value="KR">Korea</option>
+                        <option value="BR">Brazil</option>
+                    </select>
+                    <span id="serverError" class="error-message"></span>
+                </div>
+
+                <div class="form-group">
+                    <label for="description">Bug Description <span class="required-field">*</span></label>
+                    <textarea id="description" name="description" 
+                        placeholder="Please describe the bug in detail:&#10;&#10;1. What happened?&#10;2. What were you doing when it occurred?&#10;3. How can we reproduce this issue?&#10;4. What was the expected behavior?" 
+                        required></textarea>
+                    <span id="descriptionError" class="error-message"></span>
+                </div>
+
+                <div class="checkbox-group">
+                    <input type="checkbox" id="permission" name="permission">
+                    <label for="permission">I agree to receive follow-up emails regarding this bug report and understand that this helps improve Palorant for everyone.</label>
+                    <span id="permissionError" class="error-message"></span>
+                </div>
+
+                <button type="submit" class="submit-btn">Submit Report</button>
+            </form>
+        </div>
+    </main>
+
+    <footer>
+        <div class="logo-section">
+            <img class="footerlogo" src="Assets/General/Logo.png" alt="logo" draggable="false">
+        </div>
+        <p>Find any bug? You can <a class="report" href="report.html">Report Bug</a> from here!</p>
+        <br>
+        <h3>Our Social Media</h3>
+        <div class="logo-div">
+            <img class="logo" src="/Assets/Logo/1.png">
+            <img class="logo" src="/Assets/Logo/2.png">
+            <img class="logo" src="/Assets/Logo/3.png">
+            <img class="logo" src="/Assets/Logo/4.png">
+        </div>
+        <p>&copy; Darrien Rafael Wijaya - 2602064241</p>
+        <p>Headquartered in Los Angeles, California, <strong>Giot</strong></p>
+    </footer>
+
+    <script src="/js/hamburgerbutton.js"></script>
+    <script src="js/report.js"></script>
+</body>
+</html>
