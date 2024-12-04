@@ -175,6 +175,7 @@ nav {
     max-width: 1000px;
     margin: 0 auto;
     display: flex;
+    flex-direction: row-reverse;
     justify-content: space-between;
     align-items: center;
     gap: 64px;
@@ -205,9 +206,6 @@ nav {
 
 .first-image {
     flex: 1;
-}
-
-.first-image {
     width: 10%;
     border-radius: 8px;
 }
@@ -517,6 +515,7 @@ nav {
     max-width: 1200px;
     margin: 0 auto;
     display: flex;
+    flex-direction: row-reverse;
     justify-content: space-between;
     align-items: center;
     gap: 64px;
@@ -1076,6 +1075,14 @@ select option {
     .textlogobanner {
         width: 250px;
         padding-bottom: 8px;
+    }
+
+    .first-content {
+        gap: 0;
+    }
+
+    .maps-content {
+        gap: 0;
     }
 
     .first-content, .agent-content, .maps-content {
