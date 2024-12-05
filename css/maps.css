@@ -118,7 +118,7 @@
 
 .minimap-button {
     position: absolute;
-    top: 20px;
+    bottom: 40px;
     right: 40px;
     background-color: var(--accent-color);
     color: var(--secondary-color);
@@ -325,8 +325,9 @@
 
     .minimap-button {
         top: 12px;
+        bottom: auto;
         right: 12px;
-        padding: 4px 10px;
+        padding: 10px 10px;
         font-size: 14px;
     }
     
