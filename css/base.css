@@ -1,0 +1,49 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Tungsten', sans-serif;
+}
+
+:root {
+    --primary-color: #ff4655;
+    --secondary-color: #0f1923;
+    --accent-color: #ece8e1;
+    --text-color: #333;
+    --dark-bg: #0a1017;
+}
+
+body {
+    background-color: var(--dark-bg);
+}
+
+.cta-button {
+    display: inline-block;
+    padding: 16px 32px;
+    background-color: var(--secondary-color);
+    color: white;
+    font-weight: 600;
+    text-decoration: none;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+}
+
+.cta-button:hover {
+    background-color: white;
+    color: black;
+}
+
+.cta2-button {
+    display: inline-block;
+    padding: 16px 32px;
+    background-color: var(--primary-color);
+    color: white;
+    font-weight: 600;
+    text-decoration: none;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+}
+
+.cta2-button:hover {
+    background-color: black;
+}

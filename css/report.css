@@ -1,0 +1,207 @@
+/* Report Container */
+.report-container {
+    max-width: 800px;
+    margin: 120px auto 50px;
+    padding: 40px;
+    background-color: rgba(15, 25, 35, 0.95);
+    border-radius: 12px;
+    color: var(--accent-color);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Header Section */
+.report-header {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.report-title {
+    font-size: 48px;
+    color: var(--primary-color);
+    font-family: 'Bebas Neue', sans-serif;
+    margin-bottom: 16px;
+    letter-spacing: 2px;
+}
+
+.report-subtitle {
+    color: var(--accent-color);
+    font-size: 16px;
+    opacity: 0.8;
+    max-width: 600px;
+    margin: 0 auto;
+    line-height: 1.6;
+}
+
+/* Form Layout */
+.report-form {
+    display: grid;
+    gap: 24px;
+}
+
+.form-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+/* Form Elements */
+.formSegment {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.formSegment label {
+    font-size: 14px;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--primary-color);
+}
+
+.formSegment input,
+.formSegment select,
+.formSegment textarea {
+    padding: 14px;
+    border: 2px solid rgba(255, 255, 255, 0.1);
+    border-radius: 6px;
+    background-color: rgba(0, 0, 0, 0.2);
+    color: var(--accent-color);
+    font-size: 15px;
+    transition: all 0.3s ease;
+}
+
+.formSegment input:focus,
+.formSegment select:focus,
+.formSegment textarea:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    background-color: rgba(0, 0, 0, 0.3);
+    box-shadow: 0 0 0 3px rgba(255, 70, 85, 0.2);
+}
+
+.formSegment textarea {
+    min-height: 180px;
+    resize: vertical;
+    line-height: 1.6;
+}
+
+select option {
+    background-color: var(--secondary-color);
+    color: var(--accent-color);
+    padding: 12px;
+}
+
+/* Checkbox Group */
+.checkbox-group {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    padding: 12px;
+    border-radius: 6px;
+    background-color: rgba(255, 255, 255, 0.05);
+}
+
+.checkbox-group input[type="checkbox"] {
+    width: 20px;
+    height: 20px;
+    margin-top: 2px;
+}
+
+.checkbox-group label {
+    font-size: 14px;
+    line-height: 1.4;
+    color: var(--accent-color);
+    text-transform: none;
+    letter-spacing: normal;
+}
+
+/* Submit Button */
+.submit-btn {
+    background-color: var(--primary-color);
+    color: white;
+    padding: 16px 32px;
+    border: none;
+    border-radius: 6px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    width: 100%;
+    margin-top: 16px;
+}
+
+.submit-btn:hover {
+    background-color: #ff2a3a;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(255, 70, 85, 0.3);
+}
+
+/* Error and Success Messages */
+.error-message {
+    color: var(--primary-color);
+    font-size: 13px;
+    margin-top: 4px;
+    display: none;
+    font-weight: 500;
+}
+
+.success-message {
+    background-color: rgba(76, 175, 80, 0.9);
+    color: white;
+    padding: 20px;
+    border-radius: 6px;
+    text-align: center;
+    margin-bottom: 24px;
+    display: none;
+    animation: slideDown 0.5s ease;
+}
+
+@keyframes slideDown {
+    from {
+        transform: translateY(-20px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+/* Required Field Indicator */
+.required-field {
+    color: var(--primary-color);
+    margin-left: 4px;
+}
+
+/* Responsive Styles */
+@media screen and (max-width: 768px) {
+    .report-container {
+        margin: 100px 16px 32px;
+        padding: 24px;
+    }
+
+    .report-title {
+        font-size: 36px;
+    }
+
+    .form-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .checkbox-group {
+        padding: 10px;
+    }
+
+    .checkbox-group label {
+        font-size: 13px;
+    }
+
+    .submit-btn {
+        padding: 14px 28px;
+        font-size: 15px;
+    }
+}
