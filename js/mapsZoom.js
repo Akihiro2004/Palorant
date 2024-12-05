@@ -9,6 +9,7 @@ let panning = false;
 let pointX = 0;
 let pointY = 0;
 let start = { x: 0, y: 0 };
+let lastTouchDistance = 0;
 
 function setTransform() {
     minimapImg.style.transform = `translate(${pointX}px, ${pointY}px) scale(${scale})`;
@@ -59,6 +60,57 @@ function mouseMove(e) {
     setTransform();
 }
 
+function getTouchDistance(touches) {
+    return Math.hypot(
+        touches[0].clientX - touches[1].clientX,
+        touches[0].clientY - touches[1].clientY
+    );
+}
+
+function handleTouchStart(e) {
+    if (e.touches.length === 1) {
+        const touch = e.touches[0];
+        start = { x: touch.clientX - pointX, y: touch.clientY - pointY };
+        panning = true;
+        minimapImg.classList.add('dragging');
+    } 
+    else if (e.touches.length === 2) {
+        lastTouchDistance = getTouchDistance(e.touches);
+    }
+}
+
+function handleTouchMove(e) {
+    e.preventDefault();
+
+    if (e.touches.length === 1 && panning) {
+        const touch = e.touches[0];
+        pointX = (touch.clientX - start.x);
+        pointY = (touch.clientY - start.y);
+        setTransform();
+    } 
+    else if (e.touches.length === 2) {
+        const currentDistance = getTouchDistance(e.touches);
+        const difference = currentDistance - lastTouchDistance;
+        
+        if (Math.abs(difference) > 1) {
+            const zoomFactor = 1 + (difference / 200);
+            const newScale = scale * zoomFactor;
+            
+            if (newScale >= 0.5 && newScale <= 4) {
+                scale = newScale;
+                setTransform();
+            }
+            
+            lastTouchDistance = currentDistance;
+        }
+    }
+}
+
+function handleTouchEnd() {
+    panning = false;
+    minimapImg.classList.remove('dragging');
+}
+
 zoomInBtn.addEventListener('click', zoomIn);
 zoomOutBtn.addEventListener('click', zoomOut);
 zoomResetBtn.addEventListener('click', resetZoom);
@@ -66,6 +118,11 @@ zoomResetBtn.addEventListener('click', resetZoom);
 minimapImg.addEventListener('mousedown', mouseDown);
 document.addEventListener('mouseup', mouseUp);
 document.addEventListener('mousemove', mouseMove);
+
+minimapImg.addEventListener('touchstart', handleTouchStart, { passive: false });
+minimapImg.addEventListener('touchmove', handleTouchMove, { passive: false });
+minimapImg.addEventListener('touchend', handleTouchEnd);
+minimapImg.addEventListener('touchcancel', handleTouchEnd);
 
 modalBody.addEventListener('wheel', (e) => {
     e.preventDefault();
