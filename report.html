@@ -40,23 +40,22 @@
 
             <form id="bugReportForm" class="report-form">
                 <div class="form-grid">
-                    <div class="form-group">
+                    <div class="formSegment">
                         <label for="username">Username <span class="required-field">*</span></label>
-                        <input type="text" id="username" name="username" placeholder="Enter your username" required>
+                        <input type="text" id="username" name="username" placeholder="Enter your username">
                         <span id="usernameError" class="error-message"></span>
-                        <span class="form-tip">Only letters, numbers, and underscores allowed</span>
                     </div>
 
-                    <div class="form-group">
-                        <label for="email">Email Address <span class="required-field">*</span></label>
-                        <input type="email" id="email" name="email" placeholder="Enter your email" required>
-                        <span id="emailError" class="error-message"></span>
+                    <div class="formSegment">
+                        <label for="email">Email Address *</label>
+                        <input type="text" id="email" name="email" placeholder="Enter your email">
+                        <span id="emailError" class="error-message">Email must be filled.</span>
                     </div>
                 </div>
 
-                <div class="form-group">
+                <div class="formSegment">
                     <label for="server">Game Server <span class="required-field">*</span></label>
-                    <select id="server" name="server" required>
+                    <select id="server" name="server">
                         <option value="">Select your server</option>
                         <option value="NA">North America</option>
                         <option value="EU">Europe</option>
@@ -64,21 +63,23 @@
                         <option value="KR">Korea</option>
                         <option value="BR">Brazil</option>
                     </select>
-                    <span id="serverError" class="error-message"></span>
+                    <span id="serverError" class="error-message">Choose a server.</span>
                 </div>
 
-                <div class="form-group">
+                <div class="formSegment">
                     <label for="description">Bug Description <span class="required-field">*</span></label>
                     <textarea id="description" name="description" 
                         placeholder="Please describe the bug in detail:&#10;&#10;1. What happened?&#10;2. What were you doing when it occurred?&#10;3. How can we reproduce this issue?&#10;4. What was the expected behavior?" 
-                        required></textarea>
-                    <span id="descriptionError" class="error-message"></span>
+                        ></textarea>
+                        <span id="descriptionError" class="error-message">Description must be filled.</span>
                 </div>
 
-                <div class="checkbox-group">
-                    <input type="checkbox" id="permission" name="permission">
-                    <label for="permission">I agree to receive follow-up emails regarding this bug report and understand that this helps improve Palorant for everyone.</label>
-                    <span id="permissionError" class="error-message"></span>
+                <div>
+                    <div class="checkbox-group">
+                        <input type="checkbox" id="permission" name="permission">
+                        <label for="permission">I agree to receive follow-up emails regarding this bug report and understand that this helps improve Palorant for everyone.</label>
+                    </div>
+                    <span id="permissionError" class="error-message">You must agree to receive follow-up emails.</span>
                 </div>
 
                 <button type="submit" class="submit-btn">Submit Report</button>
