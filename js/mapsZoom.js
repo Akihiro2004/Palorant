@@ -15,14 +15,17 @@ function getBoundaries() {
     const containerRect = modalBody.getBoundingClientRect();
     const imgRect = minimapImg.getBoundingClientRect();
     
+    const isMobile = window.innerWidth <= 768;
+    const boundaryPadding = isMobile ? 20 : 0;
+    
     const verticalLimit = Math.max(0, (imgRect.height * scale - containerRect.height) / 2);
     const horizontalLimit = Math.max(0, (imgRect.width * scale - containerRect.width) / 2);
     
     return {
-        minX: -horizontalLimit,
-        maxX: horizontalLimit,
-        minY: -verticalLimit,
-        maxY: verticalLimit
+        minX: -horizontalLimit + boundaryPadding,
+        maxX: horizontalLimit - boundaryPadding,
+        minY: -verticalLimit + boundaryPadding,
+        maxY: verticalLimit - boundaryPadding
     };
 }
 
@@ -94,6 +97,8 @@ function getTouchDistance(touches) {
 }
 
 function handleTouchStart(e) {
+    e.preventDefault();
+    
     if (e.touches.length === 1) {
         const touch = e.touches[0];
         start = { x: touch.clientX - pointX, y: touch.clientY - pointY };
@@ -132,7 +137,7 @@ function handleTouchMove(e) {
     }
 }
 
-function handleTouchEnd() {
+function handleTouchEnd(e) {
     panning = false;
     minimapImg.classList.remove('dragging');
 }
@@ -181,4 +186,8 @@ mapModal.addEventListener('click', (e) => {
 
 document.querySelectorAll('.thumbnail').forEach(thumb => {
     thumb.addEventListener('click', handleModalClose);
+});
+
+window.addEventListener('resize', () => {
+    setTransform();
 });
