@@ -14,66 +14,64 @@ document.getElementById('bugReportForm').addEventListener('submit', function(e) 
 
     const username = document.getElementById('username');
     if (!username.value.trim()) {
-        document.getElementById('usernameError').textContent = 'Username must be filled.';
-        document.getElementById('usernameError').style.display = 'block';
-        username.classList.add('error-active');
+        showError('username', 'Username must be filled.');
         isValid = false;
     } else if (username.value.length < 3) {
-        document.getElementById('usernameError').textContent = 'Username must be at least 3 characters long';
-        document.getElementById('usernameError').style.display = 'block';
-        username.classList.add('error-active');
+        showError('username', 'Username must be at least 3 characters long');
         isValid = false;
     } else {
-        const usernameRegex = /^[a-zA-Z0-9_]+$/;
-        if (!usernameRegex.test(username.value)) {
-            document.getElementById('usernameError').textContent = 'Username can only contain letters, numbers, and underscores';
-            document.getElementById('usernameError').style.display = 'block';
-            username.classList.add('error-active');
+        let isValidUsername = true;
+        const validChars = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789_';
+        for (let char of username.value) {
+            if (!validChars.includes(char)) {
+                isValidUsername = false;
+                break;
+            }
+        }
+        if (!isValidUsername) {
+            showError('username', 'Username can only contain letters, numbers, and underscores');
             isValid = false;
         }
     }
 
     const email = document.getElementById('email');
     if (!email.value.trim()) {
-        document.getElementById('emailError').textContent = 'Email must be filled.';
-        document.getElementById('emailError').style.display = 'block';
-        email.classList.add('error-active');
+        showError('email', 'Email must be filled.');
         isValid = false;
     } else {
-        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-        if (!emailRegex.test(email.value)) {
-            document.getElementById('emailError').textContent = 'Please enter a valid email address';
-            document.getElementById('emailError').style.display = 'block';
-            email.classList.add('error-active');
+        const atIndex = email.value.indexOf('@');
+        const dotIndex = email.value.lastIndexOf('.');
+        const hasSpace = email.value.includes(' ');
+        
+        if (atIndex === -1 ||
+            dotIndex === -1 ||
+            atIndex === 0 ||
+            dotIndex <= atIndex + 1 ||
+            dotIndex === email.value.length - 1 ||
+            hasSpace) { // No spaces allowed
+            showError('email', 'Please enter a valid email address');
             isValid = false;
         }
     }
 
     const server = document.getElementById('server');
     if (!server.value) {
-        document.getElementById('serverError').textContent = 'Choose a server.';
-        document.getElementById('serverError').style.display = 'block';
-        server.classList.add('error-active');
+        showError('server', 'Choose a server.');
         isValid = false;
     }
 
     const description = document.getElementById('description');
     if (!description.value.trim()) {
-        document.getElementById('descriptionError').textContent = 'Description must be filled.';
-        document.getElementById('descriptionError').style.display = 'block';
-        description.classList.add('error-active');
+        showError('description', 'Description must be filled.');
         isValid = false;
     } else if (description.value.length < 30) {
-        document.getElementById('descriptionError').textContent = 'Please provide a detailed description (minimum 30 characters)';
-        document.getElementById('descriptionError').style.display = 'block';
-        description.classList.add('error-active');
+        showError('description', 'Please provide a detailed description (minimum 30 characters)');
         isValid = false;
     }
 
     const permission = document.getElementById('permission');
     if (!permission.checked) {
-        document.getElementById('permissionError').textContent = 'You must agree to receive follow-up emails.';
-        document.getElementById('permissionError').style.display = 'block';
+        showError('permission', 'You must agree to receive follow-up emails.');
         isValid = false;
     }
 
@@ -86,6 +84,16 @@ document.getElementById('bugReportForm').addEventListener('submit', function(e) 
         }, 5000);
     }
 });
+
+function showError(fieldId, message) {
+    const errorElement = document.getElementById(`${fieldId}Error`);
+    const field = document.getElementById(fieldId);
+    errorElement.textContent = message;
+    errorElement.style.display = 'block';
+    if (field) {
+        field.classList.add('error-active');
+    }
+}
 
 const inputs = document.querySelectorAll('input, select, textarea');
 inputs.forEach(input => {
@@ -102,8 +110,6 @@ function validateField(field) {
     errorElement.style.display = 'none';
     
     if (field.value.trim() === '' && field.type !== 'checkbox') {
-        errorElement.textContent = `${field.id.charAt(0).toUpperCase() + field.id.slice(1)} must be filled.`;
-        errorElement.style.display = 'block';
-        field.classList.add('error-active');
+        showError(field.id, `${field.id.charAt(0).toUpperCase() + field.id.slice(1)} must be filled.`);
     }
 }
