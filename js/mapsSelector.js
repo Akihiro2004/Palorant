@@ -2,14 +2,20 @@ const thumbnails = document.querySelectorAll('.thumbnail');
 const mapImage = document.querySelector('.map-image');
 const mapTitle = document.querySelector('.map-info h2');
 const mapDescription = document.querySelector('.map-info p');
+const modalTitle = document.querySelector('.modal-header h3');
 
 const values = document.querySelectorAll('.map-callout .value');
 const locationValue = values[0];
 const coordValue = values[1];
 
-navLinks?.addEventListener('click', (e) => {
-    e.stopPropagation();
-});
+const minimapButton = document.createElement('button');
+minimapButton.className = 'minimap-button';
+minimapButton.innerHTML = '<i class="fa-solid fa-map"></i> View Minimap';
+document.querySelector('.map-banner').appendChild(minimapButton);
+
+const modal = document.querySelector('.minimap-modal');
+const closeButton = modal.querySelector('.close-button');
+const minimapImage = modal.querySelector('.minimap-image');
 
 const mapData = {
     sunset: {
@@ -58,6 +64,35 @@ const mapData = {
     }
 };
 
+const initialMap = document.querySelector('.thumbnail.active').getAttribute('data-map');
+if (modalTitle && mapData[initialMap]) {
+    modalTitle.textContent = mapData[initialMap].title;
+}
+
+navLinks?.addEventListener('click', (e) => {
+    e.stopPropagation();
+});
+
+minimapButton.addEventListener('click', () => {
+    const currentMap = document.querySelector('.thumbnail.active').getAttribute('data-map');
+    minimapImage.src = `Assets/Maps/Minimaps/${currentMap.charAt(0).toUpperCase() + currentMap.slice(1)}.webp`;
+    const mapInfo = mapData[currentMap];
+    if (modalTitle && mapInfo) {
+        modalTitle.textContent = mapInfo.title;
+    }
+    modal.classList.add('active');
+});
+
+closeButton.addEventListener('click', () => {
+    modal.classList.remove('active');
+});
+
+modal.addEventListener('click', (e) => {
+    if (e.target === modal) {
+        modal.classList.remove('active');
+    }
+});
+
 thumbnails.forEach(thumbnail => {
     thumbnail.addEventListener('click', () => {
         thumbnails.forEach(t => t.classList.remove('active'));
@@ -72,6 +107,14 @@ thumbnails.forEach(thumbnail => {
             if (mapDescription) mapDescription.textContent = mapInfo.description;
             if (locationValue) locationValue.textContent = mapInfo.location;
             if (coordValue) coordValue.textContent = mapInfo.coordinates;
+            if (modalTitle) modalTitle.textContent = mapInfo.title;
         }
     });
+    
+    const existingClickHandler = thumbnail.onclick;
+    thumbnail.onclick = (e) => {
+        if (existingClickHandler) existingClickHandler(e);
+        const mapId = thumbnail.getAttribute('data-map');
+        minimapImage.src = `Assets/Maps/Minimaps/${mapId.charAt(0).toUpperCase() + mapId.slice(1)}.webp`;
+    };
 });
