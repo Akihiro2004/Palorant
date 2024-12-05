@@ -239,6 +239,15 @@
     transform-origin: center;
     transition: transform 0.1s ease-out;
     cursor: grab;
+    user-select: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    pointer-events: auto;
+    -webkit-user-drag: none;
+    -khtml-user-drag: none;
+    -moz-user-drag: none;
+    -o-user-drag: none;
 }
 
 .minimap-image.dragging {

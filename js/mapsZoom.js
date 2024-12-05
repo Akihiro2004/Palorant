@@ -11,7 +11,33 @@ let pointY = 0;
 let start = { x: 0, y: 0 };
 let lastTouchDistance = 0;
 
+function getBoundaries() {
+    const containerRect = modalBody.getBoundingClientRect();
+    const imgRect = minimapImg.getBoundingClientRect();
+    
+    const verticalLimit = Math.max(0, (imgRect.height * scale - containerRect.height) / 2);
+    const horizontalLimit = Math.max(0, (imgRect.width * scale - containerRect.width) / 2);
+    
+    return {
+        minX: -horizontalLimit,
+        maxX: horizontalLimit,
+        minY: -verticalLimit,
+        maxY: verticalLimit
+    };
+}
+
+function clampPosition(x, y) {
+    const boundaries = getBoundaries();
+    return {
+        x: Math.min(Math.max(x, boundaries.minX), boundaries.maxX),
+        y: Math.min(Math.max(y, boundaries.minY), boundaries.maxY)
+    };
+}
+
 function setTransform() {
+    const clamped = clampPosition(pointX, pointY);
+    pointX = clamped.x;
+    pointY = clamped.y;
     minimapImg.style.transform = `translate(${pointX}px, ${pointY}px) scale(${scale})`;
 }
 
