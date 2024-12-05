@@ -152,8 +152,13 @@
     line-height: 1.4;
     transition: color 0.3s ease;
     display: -webkit-box;
+    display: -moz-box;
+    display: box;
     -webkit-box-orient: vertical;
+    -moz-box-orient: vertical;
+    box-orient: vertical;
     -webkit-line-clamp: 2;
+    line-clamp: 2;
     overflow: hidden;
 }
 
@@ -162,8 +167,13 @@
     font-size: 15px;
     line-height: 1.6;
     display: -webkit-box;
-    -webkit-line-clamp: 3;
+    display: -moz-box;
+    display: box;
     -webkit-box-orient: vertical;
+    -moz-box-orient: vertical;
+    box-orient: vertical;
+    -webkit-line-clamp: 3;
+    line-clamp: 3;
     overflow: hidden;
     margin: 0;
 }
@@ -209,6 +219,7 @@
 
     .news-excerpt {
         -webkit-line-clamp: 2;
+        line-clamp: 2;
         margin: 0;
     }
 
@@ -265,6 +276,7 @@
     .news-excerpt {
         font-size: 14px;
         -webkit-line-clamp: 2;
+        line-clamp: 2;
     }
 
     .news-content {
