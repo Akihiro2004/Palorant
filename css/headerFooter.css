@@ -102,22 +102,76 @@ footer {
 @media screen and (max-width: 768px) {
     .nav-links {
         display: none;
-        position: absolute;
-        top: 100%;
+        position: fixed;
+        top: 62px;
         left: 0;
         right: 0;
-        background-color: var(--secondary-color);
+        bottom: 0;
+        background: linear-gradient(135deg, #0f1923 0%, #162431 100%);
         flex-direction: column;
-        padding: 16px;
-        text-align: center;
+        justify-content: center;
+        align-items: center;
+        gap: 24px;
+        z-index: 999;
     }
 
     .nav-links.active {
         display: flex;
+        animation: menuFadeIn 0.3s ease forwards;
+    }
+
+    .nav-links a {
+        font-size: 22px;
+        font-weight: 600;
+        color: rgba(255, 255, 255, 0.9);
+        text-transform: uppercase;
+        padding: 12px 40px;
+        position: relative;
+        background: linear-gradient(90deg, transparent 0%, rgba(255, 255, 255, 0.03) 50%, transparent 100%);
+        clip-path: polygon(10px 0, 100% 0, calc(100% - 10px) 100%, 0 100%);
+        transition: all 0.3s ease;
+        letter-spacing: 1px;
+        width: 80%;
+        max-width: 300px;
+        text-align: center;
+    }
+
+    .nav-links a:hover {
+        color: var(--primary-color);
+        background: linear-gradient(90deg, transparent 0%, rgba(255, 255, 255, 0.1) 50%, transparent 100%);
+        transform: translateY(-2px);
+    }
+
+    .nav-links a::before {
+        content: '';
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        width: 100%;
+        height: 2px;
+        background: linear-gradient(90deg, transparent, var(--primary-color), transparent);
+        transform: scaleX(0);
+        transition: transform 0.3s ease;
+    }
+
+    .nav-links a:hover::before {
+        transform: scaleX(1);
+    }
+
+    @keyframes menuFadeIn {
+        from {
+            opacity: 0;
+            transform: translateY(-10px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
     }
 
     .mobile-menu-btn {
         display: block;
+        z-index: 1000;
     }
 
     .logovaltext {
