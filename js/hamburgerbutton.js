@@ -3,7 +3,6 @@ const navLinks = document.querySelector('.nav-links');
 
 mobileMenuBtn.addEventListener('click', () => {
     navLinks.classList.toggle('active');
-    // Add smooth entrance animation for each link
     const links = navLinks.querySelectorAll('a');
     links.forEach((link, index) => {
         setTimeout(() => {
@@ -13,7 +12,6 @@ mobileMenuBtn.addEventListener('click', () => {
     });
 });
 
-// Close menu when clicking outside
 document.addEventListener('click', (e) => {
     if (!e.target.closest('nav')) {
         navLinks.classList.remove('active');
