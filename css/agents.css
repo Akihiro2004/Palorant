@@ -175,6 +175,207 @@
     gap: 32px;
 }
 
+.agent-card {
+    position: relative;
+    border-radius: 20px;
+    overflow: hidden;
+    transition: all 0.4s ease;
+    background: var(--dark-bg);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+}
+
+.agent-card:hover {
+    transform: translateY(-8px) scale(1.02);
+    box-shadow: 
+        0 20px 30px rgba(0, 0, 0, 0.2),
+        0 0 0 1px rgba(255, 70, 85, 0.1);
+}
+
+.agent-card img {
+    width: 100%;
+    height: 450px;
+    object-fit: cover;
+    transition: all 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+    transform-origin: center;
+    filter: brightness(0.95) contrast(1.1);
+    display: block;
+}
+
+.agent-card:hover img {
+    transform: scale(1.1);
+    filter: brightness(1.05) contrast(1.1);
+}
+
+.agent-info {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 80px 25px 25px;
+    background: linear-gradient(
+        to top,
+        rgba(0, 0, 0, 0.95) 0%,
+        rgba(0, 0, 0, 0.8) 40%,
+        transparent 100%
+    );
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transform: translateY(0);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.agent-card:hover .agent-info {
+    padding-bottom: 35px;
+    background: linear-gradient(
+        to top,
+        rgba(0, 0, 0, 0.98) 0%,
+        rgba(0, 0, 0, 0.9) 40%,
+        transparent 100%
+    );
+}
+
+.agent-info h3 {
+    font-size: 32px;
+    color: #ffffff;
+    font-family: 'Bebas Neue', sans-serif;
+    letter-spacing: 2px;
+    margin: 0;
+    position: relative;
+    padding-bottom: 8px;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+    transform: translateX(0);
+    transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.agent-card:hover .agent-info h3 {
+    transform: translateX(5px);
+}
+
+.agent-info h3::before {
+    content: attr(data-role);
+    position: absolute;
+    top: -20px;
+    left: 0;
+    font-size: 12px;
+    color: var(--accent-color);
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    opacity: 0;
+    transform: translateY(10px);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.agent-card:hover .agent-info h3::before {
+    opacity: 1;
+    transform: translateY(0) translateX(5px);
+}
+
+.agent-info h3::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 40px;
+    height: 2px;
+    background: linear-gradient(
+        to right,
+        var(--primary-color) 0%,
+        rgba(255, 70, 85, 0.5) 100%
+    );
+    transform: scaleX(0);
+    transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    transform-origin: left;
+    box-shadow: 0 0 10px rgba(255, 70, 85, 0.5);
+}
+
+.agent-card:hover .agent-info h3::after {
+    transform: scaleX(1);
+}
+
+.role-container img {
+    width: 32px !important;
+    height: 32px !important;
+    filter: brightness(0) invert(1) drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3));
+    opacity: 0.9;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    transform: translateX(0);
+}
+
+.agent-card:hover .role-container img {
+    opacity: 1;
+    transform: translateX(-5px) scale(1.1);
+}
+
+.agent-card::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: 20px;
+    padding: 1.5px;
+    background: linear-gradient(
+        45deg,
+        transparent 0%,
+        rgba(255, 70, 85, 0.2) 50%,
+        transparent 100%
+    );
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    pointer-events: none;
+    transition: opacity 0.4s ease;
+    opacity: 0;
+}
+
+.agent-card:hover::before {
+    opacity: 1;
+}
+
+.agent-card::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 50%;
+    height: 100%;
+    background: linear-gradient(
+        to right,
+        transparent 0%,
+        rgba(255, 255, 255, 0.05) 50%,
+        transparent 100%
+    );
+    transform: skewX(-25deg);
+    transition: 0.7s;
+    opacity: 0;
+}
+
+.agent-card:hover::after {
+    animation: shine 1.2s ease;
+}
+
+@keyframes shine {
+    0% {
+        left: -100%;
+        opacity: 0;
+    }
+    50% {
+        opacity: 1;
+    }
+    100% {
+        left: 200%;
+        opacity: 0;
+    }
+}
+
+.agent-card:active {
+    transform: translateY(-4px) scale(0.98);
+    transition: 0.1s;
+}
+
+
 @keyframes fadeSlideUp {
     0% {
         opacity: 0;
@@ -184,49 +385,6 @@
         opacity: 1;
         transform: translateY(0);
     }
-}
-
-.agent-card {
-    user-select: none;
-    background-color: var(--accent-color);
-    border-radius: 10px;
-    overflow: hidden;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    opacity: 0;
-    animation: fadeSlideUp 0.6s ease forwards;
-}
-
-.agent-card:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 8px 12px rgba(255, 70, 85, 0.5);
-}
-
-.agent-card img {
-    width: 100%;
-    height: 500px;
-    object-fit: cover;
-}
-
-.agent-info {
-    display: flex;
-    justify-content: space-between;
-    padding: 5px;
-    padding-left: 15px;
-    color: var(--accent-color);
-}
-
-.agent-info h3 {
-    font-size: 24px;
-    color: var(--secondary-color);
-    align-items: center;
-    font-family: 'Bebas Neue', sans-serif;
-}
-
-.agent-info img {
-    height: 100%;
-    width: 30px;
-    filter: invert(100%);
 }
 
 @media screen and (max-width: 768px) {
@@ -243,14 +401,38 @@
         display: block;
     }
 
+    .agent-card {
+        height: 500px;
+    }
+
+    .agent-card img {
+        height: 100%;
+        object-fit: cover;
+        object-position: top center;
+    }
+
     .agents-grid {
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 20px;
         padding: 0 16px;
-        gap: 16px;
+    }
+    
+    .agent-info h3 {
+        font-size: 28px;
+    }
+    
+    .agent-info {
+        padding: 60px 20px 20px;
     }
 }
 
 @media screen and (max-width: 480px) {
+    .agent-card {
+        height: 450px;
+    }
+
     .agents-grid {
         grid-template-columns: 1fr;
+        gap: 16px;
     }
 }
